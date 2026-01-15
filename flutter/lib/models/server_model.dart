@@ -227,6 +227,10 @@ class ServerModel with ChangeNotifier {
         await mainGetBoolOption(kOptionAllowNumericOneTimePassword);
     var hideCm = option2bool(
         'allow-hide-cm', await bind.mainGetOption(key: 'allow-hide-cm'));
+    if (this.hideCm != hideCm) {
+      this.hideCm = hideCm;
+      update = true;
+    }
     if (_approveMode != approveMode) {
       _approveMode = approveMode;
       update = true;

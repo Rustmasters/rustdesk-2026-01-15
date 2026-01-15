@@ -1386,8 +1386,7 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
           return Tooltip(
               message: enableHideCm ? "" : translate('hide_cm_tip'),
               child: GestureDetector(
-                onTap:
-                    onHideCmChanged(!model.hideCm),
+                onTap: () => onHideCmChanged(!model.hideCm),
                 child: Row(
                   children: [
                     Checkbox(
