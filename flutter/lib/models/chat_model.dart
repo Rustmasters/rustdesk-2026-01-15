@@ -262,6 +262,9 @@ class ChatModel with ChangeNotifier {
   showChatPage(MessageKey key) async {
     if (isDesktop) {
       if (isConnManager) {
+        if (gFFI.serverModel.hideCm) {
+          return;
+        }
         if (!_isShowCMSidePage) {
           await toggleCMChatPage(key);
         }
@@ -293,6 +296,9 @@ class ChatModel with ChangeNotifier {
   var _togglingCMSidePage = false; // protect order for await
   toggleCMSidePage() async {
     if (_togglingCMSidePage) return false;
+    if (gFFI.serverModel.hideCm) {
+      return false;
+    }
     _togglingCMSidePage = true;
     if (_isShowCMSidePage) {
       _isShowCMSidePage = !_isShowCMSidePage;
