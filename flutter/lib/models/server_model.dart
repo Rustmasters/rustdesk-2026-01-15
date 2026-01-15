@@ -83,7 +83,7 @@ class ServerModel with ChangeNotifier {
 
   setVerificationMethod(String method) async {
     await bind.mainSetOption(key: kOptionVerificationMethod, value: method);
-    await bind.mainSetOption(key: 'allow-hide-cm', value: bool2option('allow-hide-cm', false));
+    // await bind.mainSetOption(key: 'allow-hide-cm', value: bool2option('allow-hide-cm', false));
   }
 
   String get temporaryPasswordLength {
