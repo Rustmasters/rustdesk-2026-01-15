@@ -1387,12 +1387,12 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
               message: enableHideCm ? "" : translate('hide_cm_tip'),
               child: GestureDetector(
                 onTap:
-                    enableHideCm ? () => onHideCmChanged(!model.hideCm) : null,
+                    onHideCmChanged(!model.hideCm),
                 child: Row(
                   children: [
                     Checkbox(
                             value: model.hideCm,
-                            onChanged: enabled && enableHideCm
+                            onChanged: enabled
                                 ? onHideCmChanged
                                 : null)
                         .marginOnly(right: 5),
@@ -1401,7 +1401,7 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
                         translate('Hide connection management window'),
                         style: TextStyle(
                             color: disabledTextColor(
-                                context, enabled && enableHideCm)),
+                                context, enabled)),
                       ),
                     ),
                   ],
