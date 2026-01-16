@@ -1,0 +1,17 @@
+name: Windows Installer Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      upload-tag:
+        description: "Release tag for the Windows installer build"
+        type: string
+        default: "windows-installer"
+
+jobs:
+  build-windows-installer:
+    uses: ./.github/workflows/flutter-build.yml
+    secrets: inherit
+    with:
+      upload-artifact: true
+      upload-tag: ${{ inputs.upload-tag }}
