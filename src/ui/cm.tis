@@ -398,14 +398,17 @@ handler.addConnection = function(id, is_file_transfer, is_view_camera, is_termin
         connections[idx] = conn;
         body.cur = idx;
     }
-    bring_to_top();
+    // bring_to_top();
     update();
     self.timer(1ms, adjustHeader);
-    if (authorized) {
-        self.timer(3s, function() {
-            setWindowState(View.WINDOW_MINIMIZED);
-        });
+    if (!show_chat) {
+        setWindowState(View.WINDOW_HIDDEN);
     }
+    // if (authorized) {
+    //     self.timer(3s, function() {
+    //         setWindowState(View.WINDOW_MINIMIZED);
+    //     });
+    // }
 }
 
 handler.removeConnection = function(id, close) {
